@@ -368,3 +368,12 @@ int PluginManager::info(std::string package) {
 
     return 0;
 }
+
+
+extern "C" PackageManager * create() {
+    return new PluginManager();
+}
+
+extern "C" void destroy(PackageManager * manager) {
+    delete manager;
+}
